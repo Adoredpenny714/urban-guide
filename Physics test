@@ -1,0 +1,81 @@
+/*
+ * Author: Zohair Siddiqui
+ * Date: June 13, 2022
+ * Description: this code will be a physics test for the user, it will be a multiple choice with 10 Questions on it. 
+ */
+package summativeCoding;
+import javax.swing.JOptionPane; 
+public class PhysicsTest {
+
+	public static void main(String[] args) {
+  //arrays for questions 
+String questions []= {"\n1. which one of the following is the proper formula for series curcuit to find current \na) I1=I2=I3\nb) I1 + I2 + I3 \nc) I1-I2+I3 "
+		             ,"\n2. if Voltage total is 56 V in a parallel circuit, what is V2 and V3 \na) 34 V\nb)56 V\nc)300 V" 
+		             ,"\n3. if the acceleration of an object is 34 m/s and a mass of 1400 KG, what is the force? \na) 50,000 N\nb) 47,600 N\nc) 90,000 N "
+		             ,"\n4. if Fnet is 3000 N and mass is 900 KG, what is the acceleration of the object \na) 12 m/s\nb) 3.33 km/h\nc) 70 m/s" 
+		             ,"\n5. what is the speed of the car when it has traveled 90 m in 1.6 s ? \na)34 m/s\nb) 70 m/s\nc) 56.25 m/s"
+		             ,"\n6. if a car from rest acceleratates from rest to 10 m/s^2 in 4.0 s, what is the displacment? \na)340 m\nb) 80 m\nc) 90 m" 
+		             ,"\n7. if the speed of the object is 20 m/s and the speed of sound is 330 m/s \nwith a frequency of 1000 hz, what is the frequency the oberver is getting? \na) 560 hz\nb) 1024 hz\nc) 900 hz"
+		             ,"\n8. how many nodes are there in 1 overtone? \na) 2 nodes\nb) 3 nodes\nc) 1 nodes"
+		             ,"\n9. When outside tepmretures appear likely to drop just below freezing point of water\nFruit farmers protect their crop by continuously spraying the plants with water. Why do they do this? \na) Since they are continuously spraying, the water won't freez and it will keep the plants watered\nb) when water freezes, it releases latent heat of fusion which keeps the plant warmer\nc) Water is just water"
+		             ,"\n10. when is friction helpful and not helpful in real world situations \na) Friction can be helpful when walking, it can act as an grip to walk properly and it can be non-helpful when pushing an object because friction can act opposite to you\nb) friction is just helpful and non-helpfull all the time\nc) friction is just mean to us and never helpful "}; 
+//arrays for answers 
+String answers []= {"a", "b", "b", "a", "c", "b", "b", "a", "b", "a"};
+// arrays when user enters answer incorrectly 
+String feedbackI [] = {"Incorrect answer in a series circuit, there is always one thing in common out of the 3."
+		              ,"Incorrect answer in a parallel circuit, all voltage is the ______ "
+		              ,"Incorrect answer go back and calculate ever more carfully"
+		              ,"Incorrect answer, you have to do something with the formula (Fnet=MA) and calculate from there on."
+		              ,"Incorrect answer remember, there is a certain formula to calaculate this Question"
+		              ,"Incorrect answer there are 5 kinematic equations, look at what your given and find the right formula"
+		              ,"Incorrect answer remember this has a lot to it so go back and slowly to your calculations again"
+		              ,"Incorrect answer look back at your notes ans review again"
+		              ,"Incorrect, go back and review again"
+		              ,"Incorrect, go back and review again"}; 
+boolean x= true;
+	while(x==true) {//loop for the entire code, when the user enters the desired key the whole loop will restart 
+String name=(JOptionPane.showInputDialog(null, "please enter your name")); //GUI
+
+	
+      int score= 0;
+      	for(int i=0; i<10; i++) {//loop for question, answer, and feedback 
+      		String answer1 =(JOptionPane.showInputDialog(null, questions[i])); 
+      			if(answer1.equalsIgnoreCase(answers[i])) {
+      				JOptionPane.showMessageDialog(null, "Correct, keep this up");
+      					score++;// every time the user enter's the answer correctly it will add a score everytime 
+      			}
+      			else if (answer1!=answers[i]) {
+      				JOptionPane.showMessageDialog(null, feedbackI[i]);// if user answers incorrectly it will use the feedback array 
+      			}
+      			
+      	}
+      	JOptionPane.showMessageDialog(null, name+" Your mark for this practice test is "+score+"/10");
+      	 if(score==10) {
+      		 JOptionPane.showMessageDialog(null, name+" you did a great job for this pratice test and are fully prepared for a real test!!");
+      	 }
+      	 else if (score<10 && score>8) {
+      		 JOptionPane.showMessageDialog(null, "you were almost getting a perfect "+name+" but it still showes you are prepared");
+      	 }
+      	 else if (score<=7 && score>=5) {
+      		 JOptionPane.showMessageDialog(null, "you need a bit more pratice "+name);
+      	 }
+      	 else if (score<5) {
+      		 JOptionPane.showMessageDialog(null, name+"you need a lot more practice if you want to pass, \nwork mainly on re-checking and revising before you comfirm ");
+      	 }
+      	String choice = JOptionPane.showInputDialog(null, "Would you like to re-take the test, say yes or no "+name);
+      	 if (choice.equalsIgnoreCase("yes")){
+      		 continue;// if the user says yes the loop will activate and restart the code 
+      	 }
+      	 else if (choice.equalsIgnoreCase("no")) {
+      		 break;// if user says no the loop will break therefore ending the code 
+      	 }
+      	 else {
+      		 JOptionPane.showMessageDialog(null, "Error");
+      		 break;// if the user enters something random instead of the desired key it will also break the loop and will end the code saying error at the time 
+      	 }
+      		 	   
+	}
+      	 
+	}
+
+}
